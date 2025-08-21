@@ -8,6 +8,7 @@ const config: Config = {
   extensionsToTreatAsEsm: [".ts"],
   moduleFileExtensions: ["ts", "js", "json"],
   coveragePathIgnorePatterns: ["/tests/setup.ts"],
+  coverageReporters: ["text"],
 };
 
 export default config;
