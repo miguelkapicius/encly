@@ -49,6 +49,17 @@ afterEach(async () => {
   await clearTestDatabase();
 });
 
+describe("GET /health", () => {
+  it("should return status code 200", async () => {
+    const response = await request(app.server).get("/health");
+
+    expect(response.status).toBe(200);
+    expect(response.body).toStrictEqual({
+      status: "OK",
+    });
+  });
+});
+
 describe("GET /links", () => {
   it("should return 200 and a list of all links", async () => {
     const response = await request(app.server).get("/links");

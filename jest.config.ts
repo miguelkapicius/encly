@@ -7,6 +7,7 @@ const config: Config = {
   clearMocks: true,
   extensionsToTreatAsEsm: [".ts"],
   moduleFileExtensions: ["ts", "js", "json"],
+  coveragePathIgnorePatterns: ["/tests/setup.ts"],
 };
 
 export default config;

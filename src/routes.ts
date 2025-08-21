@@ -1,11 +1,12 @@
 import type { FastifyPluginCallbackZod } from "fastify-type-provider-zod";
 import z from "zod/v4";
 import { clicksTable, linksTable } from "./db/schema.ts";
-import { generateExpiresAt, generateShortCode } from "./utils/url-shortener.ts";
+import { generateShortCode } from "./utils/url-shortener.ts";
 import { eq } from "drizzle-orm";
 import { env } from "./env.ts";
 import type { NodePgDatabase } from "drizzle-orm/node-postgres";
 import type { Pool } from "pg";
+import { generateExpiresAt } from "./utils/date.ts";
 
 export const routes =
   (
