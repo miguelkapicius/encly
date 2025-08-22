@@ -1,0 +1,26 @@
+services:
+  pg:
+    image: bitnami/postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=urls
+  test-pg:
+    image: bitnami/postgresql
+    ports:
+      - "5482:5432"
+    environment:
+      - POSTGRES_USER=test
+      - POSTGRES_PASSWORD=test
+      - POSTGRES_DB=tests
+
+  jaeger:
+    image: jaegertracing/all-in-one
+    ports:
+      - "16686:16686" # UI
+      - "6831:6831/udp" # Traces UDP
+      - "14268:14268" # Traces HTTP
+      - "4317:4317" # OTLP/gRPC
+      - "4318:4318" # OTLP/HTTP
